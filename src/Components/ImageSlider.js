@@ -63,7 +63,9 @@ const ImageSlider = ({slides}) => {
 
             <div class='text'>Location:</div>
             <td class="locationArea">{Team_Info[current].location.city}</td>
+            <div class='text'>Team:</div>
             <td class="locationArea">{Team_Info[current].location.team}</td>
+            <div class='text'>Stadium:</div>
             <td class="locationArea">{Team_Info[current].location.stadium}</td>
             
             <div class='text'>Stats:</div>
