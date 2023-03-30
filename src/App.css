@@ -62,7 +62,7 @@
 }
 
 .bg{
-  background-image: url(./NFL\ Project\ Background.png);
+  background-image: url(./NFL\ Project\ Background.jpeg);
   height: 1700px;
   background-repeat: repeat-y;
   margin: 0px;
@@ -88,15 +88,16 @@
   top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: rgba(255, 255, 255, .4);
+  background: rgba(255, 255, 255, .9);
   box-shadow: 0 15px 20px rgba(0, 0, 0, .2);
   padding: 40px;
   text-align: center;
   font-size: 25px;
   font-family: 'Roboto Condensed';
   border-style: double;
-  flex-direction: column
-;}
+  flex-direction: column;
+  border-radius: 10px;
+}
 
 
 .teamSelectBox{
@@ -149,7 +150,7 @@
   position:fixed;
   inset: 20px 0 20px 20px;
   width: 75px;
-  background:rgba(255, 255, 255, 0.2);
+  background:rgba(255, 255, 255, 0.5);
   transition: 0.5s;
   display: flex;
   justify-content: center;
@@ -264,7 +265,7 @@
 .statsTable{
   border: 5px double rgb(0, 15, 62);
   margin-top: 10px;
-
+  border-radius: 10px;
 }
 .statsCategory{
   border: 1px solid rgb(0,15, 62);
