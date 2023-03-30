@@ -1,7 +1,7 @@
 
 import './App.css';
 import Sidebar from './Components/Sidebar';
-import image from '../src/NFL Project Background.png'
+import image from '../src/NFL Project Background.jpeg'
 import { SliderData } from './Components/SliderData';
 import ImageSlider from './Components/ImageSlider';
 
