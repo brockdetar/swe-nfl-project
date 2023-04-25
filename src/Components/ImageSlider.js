@@ -67,6 +67,8 @@ const ImageSliderLeft = ({slides}) => {
             <td class="locationArea">{Team_Info[current].location.team}</td>
             <div class='text'>Stadium:</div>
             <td class="locationArea">{Team_Info[current].location.stadium}</td> 
+            <div class='text'>Power Rank:</div>
+          
             
             <div class='text'>Stats:</div>
             <table class="statsTable">
@@ -180,6 +182,8 @@ const ImageSliderRight = ({slides}) => {
             <td class="locationArea">{Team_Info[current].location.team}</td>
             <div class='text'>Stadium:</div>
             <td class="locationArea">{Team_Info[current].location.stadium}</td> 
+            <div class='text'>Power Rank:</div>
+            <td class="locationArea">{Team_Info[current].location.ovr}</td> 
             
             <div class='text'>Stats:</div>
             <table class="statsTable">
@@ -242,8 +246,8 @@ const ImageSliderRight = ({slides}) => {
     );
 };
 
-const Predictor = ({slides}) => {
-    const leftO_Passing = ImageSliderLeft.O_Passing[ImageSliderLeft.current].stats.PassYds;
+const Predictor = () => {
+    /*const leftO_Passing = ImageSliderLeft.O_Passing[ImageSliderLeft.current].stats.PassYds;
     const leftO_Rushing = ImageSliderLeft.O_Rushing[ImageSliderLeft.current].stats.RushYds;
     const leftO_PassTD = ImageSliderLeft.O_Passing[ImageSliderLeft.current].stats.TD;
     const leftO_RushTD = ImageSliderLeft.O_Rushing[ImageSliderLeft.current].stats.TD;
@@ -278,12 +282,10 @@ const Predictor = ({slides}) => {
 
     const leftOVR = (leftO_Rating + leftD_Rating) / 2;
     const rightOVR = (rightO_Rating + rightD_Rating) / 2;
+*/
+    const leftOVR = 100;
+    const rightOVR = 90;
 
-    if (leftOVR > rightOVR) {
-        console.log("Left Team Wins")
-    } 
-    else if (leftOVR < rightOVR) {
-    
-    }
+   return(leftOVR, rightOVR)
 }
-export default (ImageSliderLeft, ImageSliderRight);
+export default (Predictor, ImageSliderLeft, ImageSliderRight);
