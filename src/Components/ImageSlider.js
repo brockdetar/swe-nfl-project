@@ -15,7 +15,7 @@ import O_Receiving from './WebScraper/team_Stats/O_Receiving.json';
 import Team_Info from './WebScraper/team_Stats/Team_Info.json';
 
 
-const ImageSlider = ({slides}) => {
+const ImageSliderLeft = ({slides}) => {
     const [current, setCurrent] = useState(0);
     const length = slides.length;
 
@@ -242,4 +242,48 @@ const ImageSliderRight = ({slides}) => {
     );
 };
 
-export default (ImageSlider, ImageSliderRight);
+const Predictor = ({slides}) => {
+    const leftO_Passing = ImageSliderLeft.O_Passing[ImageSliderLeft.current].stats.PassYds;
+    const leftO_Rushing = ImageSliderLeft.O_Rushing[ImageSliderLeft.current].stats.RushYds;
+    const leftO_PassTD = ImageSliderLeft.O_Passing[ImageSliderLeft.current].stats.TD;
+    const leftO_RushTD = ImageSliderLeft.O_Rushing[ImageSliderLeft.current].stats.TD;
+    const leftO_PassComp = ImageSliderLeft.O_Passing[ImageSliderLeft.current].stats["Cmp%"];
+    const leftO_INT = ImageSliderLeft.O_Passing[ImageSliderLeft.current].stats.INT;
+
+    const rightO_Passing = ImageSliderRight.O_Passing[ImageSliderRight.current].stats.PassYds;
+    const rightO_Rushing = ImageSliderRight.O_Rushing[ImageSliderRight.current].stats.RushYds;
+    const rightO_PassTD = ImageSliderRight.O_Passing[ImageSliderRight.current].stats.TD;
+    const rightO_RushTD = ImageSliderRight.O_Rushing[ImageSliderRight.current].stats.TD;
+    const rightO_PassComp = ImageSliderRight.O_Passing[ImageSliderRight.current].stats["Cmp%"];
+    const rightO_INT = ImageSliderRight.O_Passing[ImageSliderRight.current].stats.INT;
+
+    const leftD_Passing = ImageSliderLeft.D_Passing[ImageSliderLeft.current].stats.Yds;
+    const leftD_Rushing = ImageSliderLeft.D_Rushing[ImageSliderLeft.current].stats.RushYds;
+    const leftD_PassTD = ImageSliderLeft.D_Passing[ImageSliderLeft.current].stats.TD;
+    const leftD_RushTD = ImageSliderLeft.D_Rushing[ImageSliderLeft.current].stats.TD;
+    const leftD_INT = ImageSliderLeft.D_Passing[ImageSliderLeft.current].stats.INT;
+    const leftD_Fumbles = ImageSliderLeft.D_Fumbles[ImageSliderLeft.current].stats.FF;
+
+    const rightD_Passing = ImageSliderRight.D_Passing[ImageSliderRight.current].stats.Yds;
+    const rightD_Rushing = ImageSliderRight.D_Rushing[ImageSliderRight.current].stats.RushYds;
+    const rightD_PassTD = ImageSliderRight.D_Passing[ImageSliderRight.current].stats.TD;
+    const rightD_RushTD = ImageSliderRight.D_Rushing[ImageSliderRight.current].stats.TD;
+    const rightD_INT = ImageSliderRight.D_Passing[ImageSliderRight.current].stats.INT;
+    const rightD_Fumbles = ImageSliderRight.D_Fumbles[ImageSliderRight.current].stats.FF;
+    
+    const leftO_Rating = (leftO_Passing + leftO_Rushing + (leftO_PassTD * 20) + (leftO_RushTD * 20) + (leftO_PassComp * 2) - (leftO_INT * 2));
+    const leftD_Rating = (leftD_Passing + leftD_Rushing + (leftD_PassTD * 20) + (leftD_RushTD * 20) + (leftD_INT * 2) + (leftD_Fumbles * 2));
+    const rightO_Rating = (rightO_Passing + rightO_Rushing + (rightO_PassTD * 20) + (rightO_RushTD * 20) + (rightO_PassComp * 2) - (rightO_INT * 2));
+    const rightD_Rating = (rightD_Passing + rightD_Rushing + (rightD_PassTD * 20) + (rightD_RushTD * 20) + (rightD_INT * 2) + (rightD_Fumbles * 2));
+
+    const leftOVR = (leftO_Rating + leftD_Rating) / 2;
+    const rightOVR = (rightO_Rating + rightD_Rating) / 2;
+
+    if (leftOVR > rightOVR) {
+        console.log("Left Team Wins")
+    } 
+    else if (leftOVR < rightOVR) {
+    
+    }
+}
+export default (ImageSliderLeft, ImageSliderRight);

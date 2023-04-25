@@ -3,8 +3,8 @@ import './App.css';
 import Sidebar from './Components/Sidebar';
 import image from '../src/NFL Project Background.jpeg'
 import { SliderData } from './Components/SliderData';
-import ImageSlider from './Components/ImageSlider';
-import ImageSliderRight from './Components/ImageSliderRight';
+import ImageSliderLeft from './Components/ImageSlider';
+import ImageSliderRight from './Components/ImageSlider';
 
 
 
@@ -18,7 +18,7 @@ function App() {
           </div>
           <div class='teamSelectBox'>
             <div class="teamSelect">
-              <ImageSlider slides={SliderData}/>
+              <ImageSliderLeft slides={SliderData}/>
             </div>
             <div class="middleBox">vs</div>
             <div class="teamSelectRight">
